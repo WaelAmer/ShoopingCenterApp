@@ -3,6 +3,7 @@ package BLL;
 import DAL.ArticleEntity;
 import DAL.ArticleMgr;
 import DAL.InvoiceMgr;
+import org.apache.log4j.*;
 
 import java.util.Scanner;
 
@@ -12,7 +13,8 @@ import java.util.Scanner;
 public class SysCtr {
     private ArticleBll _ArticleCtr;
     private InvoiceBll _InvoiceCtr;
-
+    private static final Logger log =
+            Logger.getLogger(SysCtr.class);
 
     public SysCtr(){
         //TODO: Improvement needed.
@@ -24,6 +26,9 @@ public class SysCtr {
      * Display Main Menu.
      */
     public void DisplayConsole(){
+
+        BindConfiguration();
+
 
         int Choice=0;
         boolean Check=true;
@@ -60,6 +65,16 @@ public class SysCtr {
 
     }
 
+    private void BindConfiguration() {
+        PropertyConfigurator.configure("log4j.properties");
+//        log.debug("DisplayConsole Display menu entered");
+//        log.info("DisplayConsole Display menu entered");
+//        log.fatal("DisplayConsole Display menu entered");
+//        log.warn("DisplayConsole Display menu entered");
+//        log.error("DisplayConsole Display menu entered");
+    }
+
+    //Begin Main Menu.
     /**
      * Display the Invoice Statistics menu.
      */
@@ -92,7 +107,9 @@ public class SysCtr {
             //TODO: Log Exception
         }
     }
-
+    /**
+     * Display the Article Management menu.
+     */
     private void DisplayArticleManagement() {
         try {
             int Choice=0;
@@ -132,15 +149,22 @@ public class SysCtr {
             //TODO: Log Exception
         }
     }
+    //End Main Menu.
 
+
+    //Begin Articles Menu.
+    /**
+     * Delete Exist Article from Console.
+     */
     private void DisplayDelArticle() {
 
     }
-
+    /**
+     * Edit Exist Article from Console.
+     */
     private void DisplayEditArticle() {
 
     }
-
     /**
      * Create new Article from Console.
      */
@@ -160,5 +184,6 @@ public class SysCtr {
             //TODO: Log Exception
         }
     }
+    //End Articles Menu.
 
 }
