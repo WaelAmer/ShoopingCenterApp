@@ -13,8 +13,7 @@ import java.util.Scanner;
 public class SysCtr {
     private ArticleBll _ArticleCtr;
     private InvoiceBll _InvoiceCtr;
-    private static final Logger log =
-            Logger.getLogger(SysCtr.class);
+    private static final Logger log =Logger.getLogger(SysCtr.class);
 
     public SysCtr(){
         //TODO: Improvement needed.
