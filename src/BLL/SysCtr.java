@@ -1,18 +1,23 @@
 package BLL;
 
+import DAL.ArticleEntity;
+import DAL.ArticleMgr;
+import DAL.InvoiceMgr;
+
 import java.util.Scanner;
 
 /**
  * Created by A046098 on 23.10.2015.
  */
 public class SysCtr {
-    ArticleBll _ArticleCtr;
-    InvoiceBll _InvoiceCtr;
+    private ArticleBll _ArticleCtr;
+    private InvoiceBll _InvoiceCtr;
 
 
     public SysCtr(){
-        _ArticleCtr=new ArticleBll();
-        _InvoiceCtr=new InvoiceBll();
+        //TODO: Improvement needed.
+        _ArticleCtr=new ArticleBll(new ArticleMgr());
+        _InvoiceCtr=new InvoiceBll(new InvoiceMgr());
     }
 
     /**
@@ -141,11 +146,16 @@ public class SysCtr {
      */
     private void DisplayAddArticle() {
         try {
+            ArticleEntity Entity=new ArticleEntity();
+            Scanner in = new Scanner(System.in);
+
             System.out.println("Enter Article Name : ");
+
             System.out.println("Enter Article CategoryID : ");
+
             System.out.println("Enter Article Price : ");
 
-
+            _ArticleCtr.AddArticle(Entity);
         }catch (Exception e){
             //TODO: Log Exception
         }

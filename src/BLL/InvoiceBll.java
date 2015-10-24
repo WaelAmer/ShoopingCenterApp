@@ -1,10 +1,17 @@
 package BLL;
 
+import DAL.IInvoiceMgr;
+
 /**
  * Created by A046098 on 23.10.2015.
  */
 public class InvoiceBll {
 
+    private IInvoiceMgr _Dal;
+
+    public InvoiceBll(IInvoiceMgr Dal){
+        _Dal=Dal;
+    }
     /**
      * Add new Invoice .
      */

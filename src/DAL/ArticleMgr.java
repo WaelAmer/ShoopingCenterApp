@@ -1,5 +1,6 @@
 package DAL;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -8,22 +9,50 @@ import java.util.List;
 public class ArticleMgr implements IArticleMgr {
     @Override
     public List<ArticleEntity> GetAll() {
-        return null;
+        List<ArticleEntity> ResultList;
+        try {
+            ResultList=new ArrayList<ArticleEntity>();
+        }
+        catch (Exception Ex){
+            throw Ex;
+        }
+        return ResultList;
     }
 
     @Override
     public boolean Create(ArticleEntity Article) {
-        return false;
+        boolean Success=false;
+        try {
+            Success=true;
+        }
+        catch (Exception Ex){
+            throw Ex;
+        }
+        return Success;
     }
 
     @Override
     public boolean Update(int ArticleID, ArticleEntity Article) {
-        return false;
+        boolean Success=false;
+        try {
+            Success=true;
+        }
+        catch (Exception Ex){
+            throw Ex;
+        }
+        return Success;
     }
 
     @Override
     public boolean DeleteByID(int ArticleID) {
-        return false;
+        boolean Success=false;
+        try {
+            Success=true;
+        }
+        catch (Exception Ex){
+            throw Ex;
+        }
+        return Success;
     }
 }
 
