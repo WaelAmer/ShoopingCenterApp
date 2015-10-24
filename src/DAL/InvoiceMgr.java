@@ -1,5 +1,6 @@
 package DAL;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -8,7 +9,15 @@ import java.util.List;
 public class InvoiceMgr implements IInvoiceMgr{
     @Override
     public List<InvoiceEntity> GetAll() {
-        return null;
+
+        List<InvoiceEntity> ResultList;
+        try {
+            ResultList=new ArrayList<InvoiceEntity>();
+        }
+        catch (Exception Ex){
+            throw Ex;
+        }
+        return ResultList;
     }
 
     @Override
