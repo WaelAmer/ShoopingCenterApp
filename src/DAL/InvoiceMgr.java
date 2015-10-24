@@ -22,16 +22,37 @@ public class InvoiceMgr implements IInvoiceMgr{
 
     @Override
     public boolean Create(InvoiceEntity Invoice) {
-        return false;
+        boolean Success=false;
+        try {
+            Success=true;
+        }
+        catch (Exception Ex){
+            throw Ex;
+        }
+        return Success;
     }
 
     @Override
     public boolean Update(int ArticleID, InvoiceEntity Invoice) {
-        return false;
+        boolean Success=false;
+        try {
+            Success=true;
+        }
+        catch (Exception Ex){
+            throw Ex;
+        }
+        return Success;
     }
 
     @Override
     public boolean DeleteByID(int InvoiceID) {
-        return false;
+        boolean Success=false;
+        try {
+            Success=true;
+        }
+        catch (Exception Ex){
+            throw Ex;
+        }
+        return Success;
     }
 }
