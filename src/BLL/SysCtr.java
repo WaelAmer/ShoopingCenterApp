@@ -15,6 +15,9 @@ public class SysCtr {
         _InvoiceCtr=new InvoiceBll();
     }
 
+    /**
+     * Display Main Menu.
+     */
     public void DisplayConsole(){
 
         int Choice=0;
@@ -38,41 +41,114 @@ public class SysCtr {
                         break;
                     case 3:
                         DisplayArticleStatistics();
+                        break;
                     case 4:
                         DisplayInvoiceStatistics();
+                        break;
                 }
                 if (Choice==5)
                     Check=false;
             } catch (NumberFormatException e){
                 System.err.println("Input error - Invalid Number please chose only between 1-5.");
-                Check = false;
             }
         }while (Check);
 
     }
 
+    /**
+     * Display the Invoice Statistics menu.
+     */
     private void DisplayInvoiceStatistics() {
         try {
-            System.out.println("just entered Articles Management .");
-        }catch (Exception e){}
-    }
+           // Runtime.getRuntime().exec("cls");
+           // Runtime.getRuntime().exec("clear");
 
+        }catch (Exception e){
+            //TODO: Log Exception
+        }
+    }
+    /**
+     * Display the Article Statistics menu.
+     */
     private void DisplayArticleStatistics() {
         try {
             System.out.println("just entered DisplayArticleStatistics .");
-        }catch (Exception e){}
+        }catch (Exception e){
+            //TODO: Log Exception
+        }
     }
-
+    /**
+     * Display the Invoice Management menu.
+     */
     private void DisplayInvoiceManagement() {
         try {
             System.out.println("just entered DisplayInvoiceManagement .");
-        }catch (Exception e){}
+        }catch (Exception e){
+            //TODO: Log Exception
+        }
     }
 
     private void DisplayArticleManagement() {
         try {
-            System.out.println("just entered DisplayArticleManagement .");
-        }catch (Exception e){}
+            int Choice=0;
+            boolean Check=true;
+            do {
+                //System.out.println("just entered DisplayArticleManagement .");
+                System.out.println("1- Add new Article .");
+                System.out.println("2- Edit Exist Article .");
+                System.out.println("3- Delete Exist Article .");
+                System.out.println("4- Search for Article .");
+                System.out.println("5- Exit .");
+                Scanner in = new Scanner(System.in);
+                try{
+                    Choice = Integer.parseInt(in.nextLine());
+                    switch (Choice){
+                        case 1:
+                            DisplayAddArticle();
+                            break;
+                        case 2:
+                            DisplayEditArticle();
+                            break;
+                        case 3:
+                            DisplayDelArticle();
+                            break;
+                        case 4:
+                            DisplayInvoiceStatistics();
+                            break;
+                    }
+                    if (Choice==5)
+                        Check=false;
+                } catch (NumberFormatException e){
+                    System.err.println("Input error - Invalid Number please chose only between 1-5.");
+                }
+            }while (Check);
+
+        }catch (Exception e){
+            //TODO: Log Exception
+        }
+    }
+
+    private void DisplayDelArticle() {
+
+    }
+
+    private void DisplayEditArticle() {
+
+    }
+
+    /**
+     * Create new Article from Console.
+     */
+    private void DisplayAddArticle() {
+        try {
+            System.out.println("Enter Article Name : ");
+            System.out.println("Enter Article CategoryID : ");
+            System.out.println("Enter Article Price : ");
+
+
+        }catch (Exception e){
+            //TODO: Log Exception
+        }
     }
 
 }
