@@ -13,12 +13,14 @@ public class ArticleCtr {
         return false;
     }
 
+    /**
+     * Edit Article .
+     * @return
+     */
     public boolean EditArticle(){
         return false;
     }
-    public boolean DelArticle(){
-        return false;
-    }
+    public boolean DelArticle(){return false;}
 
 
 }
