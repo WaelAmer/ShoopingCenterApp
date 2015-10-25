@@ -11,6 +11,7 @@ public interface IInvoiceMgr {
 
     public List<InvoiceEntity> GetAll();
     public boolean Create(List<InvoiceEntity> Invoice);
-    public boolean Update(int ArticleID,InvoiceEntity Invoice);
+    public boolean Update(int InvoiceID, List<InvoiceEntity> Invoices);
+
     public boolean DeleteByID(int InvoiceID);
 }
