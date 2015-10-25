@@ -11,21 +11,14 @@ import java.util.List;
  * Created by A046098 on 21.10.2015.
  */
 public class ArticleMgr implements IArticleMgr {
-
     private static final Logger log =Logger.getLogger(ArticleMgr.class);
-
-    private void BindConfiguration() {
-
-        PropertyConfigurator.configure("log4j.properties");
-//        log.debug("DisplayConsole Display menu entered");
-//        log.info("DisplayConsole Display menu entered");
-//        log.fatal("DisplayConsole Display menu entered");
-//        log.warn("DisplayConsole Display menu entered");
-//        log.error("DisplayConsole Display menu entered");
-    }
     public ArticleMgr(){
         BindConfiguration();
     }
+    private void BindConfiguration() {
+        PropertyConfigurator.configure("log4j.properties");
+    }
+
     @Override
     public List<ArticleEntity> GetAll() {
         List<ArticleEntity> ResultList;
@@ -33,9 +26,7 @@ public class ArticleMgr implements IArticleMgr {
             Session session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
 
-            ResultList = (List<ArticleEntity>) session.createQuery(
-                    "FROM ArticleEntity s ORDER BY s.name ASC").list();
-
+            ResultList = (List<ArticleEntity>) session.createQuery("FROM ArticleEntity s ORDER BY s.name ASC").list();
             session.getTransaction().commit();
         }
         catch (Exception Ex){
@@ -49,6 +40,11 @@ public class ArticleMgr implements IArticleMgr {
     public boolean Create(ArticleEntity Article) {
         boolean Success=false;
         try {
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+
+            int id = (Integer) session.save(Article);
+            session.getTransaction().commit();
             Success=true;
         }
         catch (Exception Ex){
@@ -62,6 +58,15 @@ public class ArticleMgr implements IArticleMgr {
     public boolean Update(int ArticleID, ArticleEntity Article) {
         boolean Success=false;
         try {
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+
+            ArticleEntity ArticleDb = (ArticleEntity) session.get(ArticleEntity.class, ArticleID);
+            ArticleDb.setCategoryId(Article.getCategoryId());
+            ArticleDb.setName(Article.getName());
+            Article.setPrice(Article.getPrice());
+            //No need to update manually as it will be updated automatically on transaction close.
+            session.getTransaction().commit();
             Success=true;
         }
         catch (Exception Ex){
@@ -75,6 +80,12 @@ public class ArticleMgr implements IArticleMgr {
     public boolean DeleteByID(int ArticleID) {
         boolean Success=false;
         try {
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+
+            ArticleEntity ArticleDb = (ArticleEntity) session.get(ArticleEntity.class, ArticleID);
+            session.delete(ArticleDb);
+            session.getTransaction().commit();
             Success=true;
         }
         catch (Exception Ex){
