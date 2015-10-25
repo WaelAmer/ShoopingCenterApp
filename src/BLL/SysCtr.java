@@ -114,7 +114,7 @@ public class SysCtr {
             int Choice=0;
             boolean Check=true;
             do {
-                //System.out.println("just entered DisplayArticleManagement .");
+                System.out.println("0- Display All Articles .");
                 System.out.println("1- Add new Article .");
                 System.out.println("2- Edit Exist Article .");
                 System.out.println("3- Delete Exist Article .");
@@ -124,6 +124,9 @@ public class SysCtr {
                 try{
                     Choice = Integer.parseInt(in.nextLine());
                     switch (Choice){
+                        case 0:
+                            DisplayAllArticle();
+                            break;
                         case 1:
                             DisplayAddArticle();
                             break;
@@ -169,18 +172,31 @@ public class SysCtr {
      */
     private void DisplayAddArticle() {
         try {
-            ArticleEntity Entity=new ArticleEntity();
-            Scanner in = new Scanner(System.in);
 
-            System.out.println("Enter Article Name : ");
-
-            System.out.println("Enter Article CategoryID : ");
-
-            System.out.println("Enter Article Price : ");
-
-            _ArticleCtr.AddArticle(Entity);
+//            ArticleEntity Entity=new ArticleEntity();
+//            Scanner in = new Scanner(System.in);
+//
+//            System.out.println("Enter Article Name : ");
+//
+//            System.out.println("Enter Article CategoryID : ");
+//
+//            System.out.println("Enter Article Price : ");
+//
+//            _ArticleCtr.AddArticle(Entity);
+           // _ArticleCtr.GetAll();
+            //System.out.println(_ArticleCtr.GetAll().size());
         }catch (Exception e){
-            //TODO: Log Exception
+            log.error("Business Layer Error at DisplayAddArticle : "+ e.getMessage());
+        }
+    }
+
+    private void DisplayAllArticle() {
+        try {
+            for (ArticleEntity Article : _ArticleCtr.GetAll()){
+                System.out.println(Article);
+            }
+        }catch (Exception e){
+            log.error("Business Layer Error at DisplayAddArticle : "+ e.getMessage());
         }
     }
     //End Articles Menu.

@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="DAL.ArticleEntity" table="Article" schema="dbo" catalog="ShoopingMarket">
+        <id name="id">
+            <column name="ID" sql-type="int identity" not-null="true"/>
+        </id>
+        <property name="name">
+            <column name="Name" sql-type="varchar" length="150"/>
+        </property>
+        <property name="categoryId">
+            <column name="CategoryID" sql-type="int"/>
+        </property>
+        <property name="price">
+            <column name="Price" sql-type="decimal" precision="5" scale="2"/>
+        </property>
+    </class>
+</hibernate-mapping>

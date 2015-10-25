@@ -1,8 +1,11 @@
 package BLL;
 
 import DAL.ArticleEntity;
+import DAL.HibernateUtil;
 import DAL.IArticleMgr;
+import org.hibernate.Session;
 
+import java.util.List;
 import java.util.logging.Logger;
 
 /**
@@ -43,6 +46,10 @@ public class ArticleBll {
      * @return true if success false if failed.
      */
     public boolean DelArticle(int ArticleID){return false;}
+
+    public List<ArticleEntity> GetAll(){
+        return _Dal.GetAll();
+    }
 
 
 }

@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="DAL.InvoiceEntity" table="Invoice" schema="dbo" catalog="ShoopingMarket">
+        <composite-id mapped="true" class="DAL.InvoiceEntityPK">
+            <key-property name="id">
+                <column name="ID" sql-type="int" not-null="true"/>
+            </key-property>
+            <key-property name="articleId">
+                <column name="ArticleID" sql-type="int" not-null="true"/>
+            </key-property>
+            <key-property name="invoiceDate">
+                <column name="InvoiceDate" sql-type="datetime" not-null="true"/>
+            </key-property>
+        </composite-id>
+        <property name="articleName">
+            <column name="ArticleName" sql-type="varbinary" not-null="true"/>
+        </property>
+        <property name="articlePrice">
+            <column name="ArticlePrice" sql-type="decimal" precision="5" scale="2" not-null="true"/>
+        </property>
+        <property name="articleCount">
+            <column name="ArticleCount" sql-type="int" not-null="true"/>
+        </property>
+        <property name="articleTotalPrice">
+            <column name="ArticleTotalPrice" sql-type="decimal" precision="5" scale="2" not-null="true"/>
+        </property>
+        <many-to-one name="articleByArticleId" class="DAL.ArticleEntity">
+            <column name="ArticleID" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

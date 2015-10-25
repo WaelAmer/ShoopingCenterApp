@@ -3,9 +3,11 @@
   <component name="FacetManager">
     <facet type="hibernate" name="Hibernate">
       <configuration>
-        <datasource-map />
+        <datasource-map>
+          <unit-entry name="hibernate.cfg.xml" value="19742a96-1223-4d40-a2f8-883684bc6425" />
+        </datasource-map>
         <naming-strategy-map />
-        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/.idea/compiler.xml" />
+        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/hibernate.cfg.xml" />
       </configuration>
     </facet>
   </component>
@@ -20,6 +22,16 @@
       <library>
         <CLASSES>
           <root url="jar://$MODULE_DIR$/../Lib/apache-log4j-1.2.16/log4j-1.2.16.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" exported="" name="Hibernate 4.2.2-4.2.2" level="project" />
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../Lib/sqljdbc_4.2.6420.100_enu/sqljdbc_4.2/enu/sqljdbc42.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

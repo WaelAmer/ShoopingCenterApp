@@ -2,6 +2,7 @@ package DAL;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
+import org.hibernate.Session;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +30,13 @@ public class ArticleMgr implements IArticleMgr {
     public List<ArticleEntity> GetAll() {
         List<ArticleEntity> ResultList;
         try {
-            ResultList=new ArrayList<ArticleEntity>();
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+
+            ResultList = (List<ArticleEntity>) session.createQuery(
+                    "FROM ArticleEntity s ORDER BY s.name ASC").list();
+
+            session.getTransaction().commit();
         }
         catch (Exception Ex){
             log.fatal("Data Layer Exception GetAll : "+ Ex.getMessage());
