@@ -63,29 +63,23 @@ public class InvoiceMgr implements IInvoiceMgr{
         return Success;
     }
 
+
     @Override
-    public boolean Update(int InvoiceID, List<InvoiceEntity> Invoices) {
-        boolean Success=false;
+    public List<InvoiceEntity> GetByID(int InvoiceID) {
+
+        List<InvoiceEntity> ResultList;
         try {
-            DeleteByID(InvoiceID);
             Session session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
-//            List<Song> fetchedSongs = session.createCriteria(Song.class).add(Restrictions.in("id",idsToQueryDatabaseFor).list();
-//            Criteria c2 = session.createCriteria(InvoiceEntity.class);
-//            c2.add(Restrictions.eq("ID", InvoiceID));
-//            List<InvoiceEntity>  InvoiceDB= (List<InvoiceEntity>) c2.list();
-            for (InvoiceEntity Inv : Invoices){
-                Inv.setId(InvoiceID);
-                session.save(Inv);
-            }
+
+            ResultList = (List<InvoiceEntity>) session.createQuery("FROM InvoiceEntity i where i.id = :InvId").setInteger("InvId",InvoiceID).list();
             session.getTransaction().commit();
-            Success=true;
         }
         catch (Exception Ex){
-            log.fatal("Data Layer Exception Update : "+ Ex.getMessage());
+            log.fatal("Data Layer Exception GetAll : "+ Ex.getMessage());
             throw Ex;
         }
-        return Success;
+        return ResultList;
     }
 
     @Override
