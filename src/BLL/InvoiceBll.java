@@ -1,6 +1,11 @@
 package BLL;
 
+import DAL.ArticleEntity;
 import DAL.IInvoiceMgr;
+import DAL.InvoiceEntity;
+import org.apache.log4j.PropertyConfigurator;
+
+import java.util.List;
 
 /**
  * Created by A046098 on 23.10.2015.
@@ -8,28 +13,47 @@ import DAL.IInvoiceMgr;
 public class InvoiceBll {
 
     private IInvoiceMgr _Dal;
+    private static final org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(ArticleBll.class);
 
     public InvoiceBll(IInvoiceMgr Dal){
         _Dal=Dal;
+        BindConfiguration();
+    }
+
+    /**
+     * Bind the Logger Properties.
+     */
+    private void BindConfiguration() {
+        PropertyConfigurator.configure("log4j.properties");
     }
     /**
      * Add new Invoice .
      */
-    public boolean AddInvoice(){
-        return false;
+    public boolean AddInvoice(List<InvoiceEntity> Invoice){
+        boolean Success=false;
+        try {
+            _Dal.Create(Invoice);
+            Success=true;
+        }
+        catch (Exception Ex){
+            log.error(String.format("Business Layer Error at AddInvoice : %s Detail Exception : %s", Invoice, Ex.getMessage()));
+        }
+        return Success;
     }
 
     /**
-     * Edit Article .
-     * @return
+     * Get All Invoices from Database .
+     * @return true if success false if failed.
      */
-    public boolean EditInvoice(){
-        return false;
-    }
+    public List<InvoiceEntity> GetAll(){
+        List<InvoiceEntity> Result=null;
+        try {
+            return _Dal.GetAll();
+        }
+        catch (Exception Ex){
+            log.error(String.format("Business Layer Error at GetAll ,Detail Exception : %s",  Ex.getMessage()));
+        }
+        return Result;
 
-    /**
-     * Delete Article .
-     * @return
-     */
-    public boolean DelInvoice(){return false;}
+    }
 }

@@ -16,11 +16,6 @@ public class InvoiceMgr implements IInvoiceMgr{
     private void BindConfiguration() {
 
         PropertyConfigurator.configure("log4j.properties");
-//        log.debug("DisplayConsole Display menu entered");
-//        log.info("DisplayConsole Display menu entered");
-//        log.fatal("DisplayConsole Display menu entered");
-//        log.warn("DisplayConsole Display menu entered");
-//        log.error("DisplayConsole Display menu entered");
     }
     public InvoiceMgr(){
         BindConfiguration();
@@ -41,7 +36,7 @@ public class InvoiceMgr implements IInvoiceMgr{
     }
 
     @Override
-    public boolean Create(InvoiceEntity Invoice) {
+    public boolean Create(List<InvoiceEntity> Invoice) {
         boolean Success=false;
         try {
             Success=true;

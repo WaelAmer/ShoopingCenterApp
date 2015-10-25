@@ -21,6 +21,9 @@ public class ArticleBll {
         BindConfiguration();
     }
 
+    /**
+     * Bind the Logger Properties.
+     */
     private void BindConfiguration() {
         PropertyConfigurator.configure("log4j.properties");
     }
@@ -72,6 +75,10 @@ public class ArticleBll {
         return Success;
     }
 
+    /**
+     * Get All Articles from Database .
+     * @return true if success false if failed.
+     */
     public List<ArticleEntity> GetAll(){
         List<ArticleEntity> Result=null;
         try {

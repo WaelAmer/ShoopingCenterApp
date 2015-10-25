@@ -8,7 +8,7 @@ import java.util.List;
 public interface IInvoiceMgr {
 
     public List<InvoiceEntity> GetAll();
-    public boolean Create(InvoiceEntity Invoice);
+    public boolean Create(List<InvoiceEntity> Invoice);
     public boolean Update(int ArticleID,InvoiceEntity Invoice);
     public boolean DeleteByID(int InvoiceID);
 }
