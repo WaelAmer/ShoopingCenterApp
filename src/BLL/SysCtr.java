@@ -1,8 +1,8 @@
 package BLL;
 
-import DAL.ArticleEntity;
-import DAL.ArticleMgr;
-import DAL.InvoiceMgr;
+import DAL.Entities.ArticleEntity;
+import DAL.Mgrs.ArticleMgr;
+import DAL.Mgrs.InvoiceMgr;
 import org.apache.log4j.*;
 
 import java.util.Scanner;

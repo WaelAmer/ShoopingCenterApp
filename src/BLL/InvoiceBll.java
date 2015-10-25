@@ -1,8 +1,7 @@
 package BLL;
 
-import DAL.ArticleEntity;
-import DAL.IInvoiceMgr;
-import DAL.InvoiceEntity;
+import DAL.Mgrs.IInvoiceMgr;
+import DAL.Entities.InvoiceEntity;
 import org.apache.log4j.PropertyConfigurator;
 
 import java.util.List;

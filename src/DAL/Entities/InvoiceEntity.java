@@ -1,10 +1,9 @@
-package DAL;
+package DAL.Entities;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * Created by A046098 on 21.10.2015.

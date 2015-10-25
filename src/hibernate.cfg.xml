@@ -9,8 +9,8 @@
         <property name="connection.username">sa</property>
         <property name="connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
         <mapping resource="DAL/ArticleEntity.hbm.xml"/>
-        <mapping class="DAL.ArticleEntity"/>
-        <mapping class="DAL.InvoiceEntity"/>
+        <mapping class="DAL.Entities.ArticleEntity"/>
+        <mapping class="DAL.Entities.InvoiceEntity"/>
         <mapping resource="DAL/InvoiceEntity.hbm.xml"/>
         <!-- DB schema will be updated if needed -->
         <!-- <property name="hbm2ddl.auto">update</property> -->

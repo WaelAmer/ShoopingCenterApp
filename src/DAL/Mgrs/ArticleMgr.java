@@ -1,10 +1,11 @@
-package DAL;
+package DAL.Mgrs;
 
+import DAL.Entities.ArticleEntity;
+import DAL.Utils.HibernateUtil;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.hibernate.Session;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

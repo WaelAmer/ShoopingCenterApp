@@ -1,4 +1,4 @@
-package DAL;
+package DAL.Entities;
 
 import javax.persistence.*;
 import java.math.BigDecimal;

@@ -4,7 +4,7 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="DAL.ArticleEntity" table="Article" schema="dbo" catalog="ShoopingMarket">
+    <class name="DAL.Entities.ArticleEntity" table="Article" schema="dbo" catalog="ShoopingMarket">
         <id name="id">
             <column name="ID" sql-type="int identity" not-null="true"/>
         </id>

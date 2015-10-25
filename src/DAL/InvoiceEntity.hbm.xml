@@ -4,8 +4,8 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="DAL.InvoiceEntity" table="Invoice" schema="dbo" catalog="ShoopingMarket">
-        <composite-id mapped="true" class="DAL.InvoiceEntityPK">
+    <class name="DAL.Entities.InvoiceEntity" table="Invoice" schema="dbo" catalog="ShoopingMarket">
+        <composite-id mapped="true" class="DAL.Entities.InvoiceEntityPK">
             <key-property name="id">
                 <column name="ID" sql-type="int" not-null="true"/>
             </key-property>
@@ -28,7 +28,7 @@
         <property name="articleTotalPrice">
             <column name="ArticleTotalPrice" sql-type="decimal" precision="5" scale="2" not-null="true"/>
         </property>
-        <many-to-one name="articleByArticleId" class="DAL.ArticleEntity">
+        <many-to-one name="articleByArticleId" class="DAL.Entities.ArticleEntity">
             <column name="ArticleID" not-null="true"/>
         </many-to-one>
     </class>

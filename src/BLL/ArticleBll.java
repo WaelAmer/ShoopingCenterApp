@@ -1,13 +1,10 @@
 package BLL;
 
-import DAL.ArticleEntity;
-import DAL.HibernateUtil;
-import DAL.IArticleMgr;
+import DAL.Entities.ArticleEntity;
+import DAL.Mgrs.IArticleMgr;
 import org.apache.log4j.PropertyConfigurator;
-import org.hibernate.Session;
 
 import java.util.List;
-import java.util.logging.Logger;
 
 /**
  * Created by A046098 on 23.10.2015.

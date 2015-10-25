@@ -1,4 +1,6 @@
-package DAL;
+package DAL.Mgrs;
+
+import DAL.Entities.ArticleEntity;
 
 import java.util.List;
 

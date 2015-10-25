@@ -1,5 +1,6 @@
-package DAL;
+package DAL.Mgrs;
 
+import DAL.Entities.InvoiceEntity;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
@@ -49,7 +50,7 @@ public class InvoiceMgr implements IInvoiceMgr{
     }
 
     @Override
-    public boolean Update(int ArticleID, InvoiceEntity Invoice) {
+    public boolean Update(int InvoiceID, InvoiceEntity Invoice) {
         boolean Success=false;
         try {
             Success=true;

@@ -1,4 +1,6 @@
-package DAL;
+package DAL.Mgrs;
+
+import DAL.Entities.InvoiceEntity;
 
 import java.util.List;
 
