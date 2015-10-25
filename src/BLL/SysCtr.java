@@ -199,6 +199,4 @@ public class SysCtr {
             log.error("Business Layer Error at DisplayAddArticle : "+ e.getMessage());
         }
     }
-    //End Articles Menu.
-
 }

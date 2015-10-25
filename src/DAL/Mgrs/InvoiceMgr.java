@@ -27,6 +27,9 @@ public class InvoiceMgr implements IInvoiceMgr{
         BindConfiguration();
     }
 
+    /**
+     * @return
+     */
     @Override
     public List<InvoiceEntity> GetAll() {
 

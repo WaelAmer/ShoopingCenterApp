@@ -25,6 +25,7 @@ public class InvoiceBll {
     private void BindConfiguration() {
         PropertyConfigurator.configure("log4j.properties");
     }
+
     /**
      * Add new Invoice .
      */
@@ -42,12 +43,28 @@ public class InvoiceBll {
 
     /**
      * Get All Invoices from Database .
-     * @return true if success false if failed.
+     * @return List of Invoices .
      */
     public List<InvoiceEntity> GetAll(){
         List<InvoiceEntity> Result=null;
         try {
-            return _Dal.GetAll();
+            Result=_Dal.GetAll();
+        }
+        catch (Exception Ex){
+            log.error(String.format("Business Layer Error at GetAll ,Detail Exception : %s",  Ex.getMessage()));
+        }
+        return Result;
+
+    }
+
+    /**
+     * Get Invoices by InvoiceID from Database .
+     * @return List of Invoices.
+     */
+    public List<InvoiceEntity> GetByID(int InvoiceID){
+        List<InvoiceEntity> Result=null;
+        try {
+            Result=_Dal.GetByID(InvoiceID);
         }
         catch (Exception Ex){
             log.error(String.format("Business Layer Error at GetAll ,Detail Exception : %s",  Ex.getMessage()));
